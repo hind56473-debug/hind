@@ -177,7 +177,23 @@ section{background:var(--card);border:1px solid var(--line);border-radius:16px;b
 .media-thumb img,.media-thumb video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;background:#fff}
 .media-actions{position:absolute;top:8px;inset-inline-end:8px;display:flex;gap:6px;z-index:2}
 .icon-btn{background:rgba(255,255,255,.98);border:1px solid var(--line);border-radius:10px;padding:6px;cursor:pointer}
-
+@media (max-width: 600px){
+  .media-grid{
+    /* OLD (kept above): grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* FORCE 2 columns */
+    gap: 12px; /* a bit tighter gap for small screens */
+  }
+  /* Keep visuals tidy on small tiles */
+  .media-thumb[data-kind="image"],
+  .media-thumb[data-kind="pdf"]{
+    /* OLD (kept above): aspect-ratio: 3/2; */
+    aspect-ratio: 4/3; /* slightly taller so captions/icons fit nicely */
+  }
+  .media-thumb[data-kind="video"]{
+    /* keep widescreen video */
+    aspect-ratio: 16/9;
+  }
+}
 /* Cards */
 .cv-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
 .cv-card.pale-glow{background:linear-gradient(180deg,#ffffff,#fff6fb);border-color:#f1b1cf;box-shadow:0 10px 24px rgba(139,30,99,.13),0 1px 0 rgba(255,245,252,.95) inset}
