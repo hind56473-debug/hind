@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>الملف التعريفي | المعلمة هند محيميد آل شرمة</title>
+
+<!-- Fonts + Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+/* ===================== THEME: Calm Rose ===================== */
+:root{
+  --bg:#fff7fb;
+  --card:#ffffff;
+  --ink:#231720;
+  --muted:#6f5a69;
+  --brand:#f4c8dc;   /* primary */
+  --brand-2:#efaccb; /* accent */
+  --line:#f0cfe0;
+  --accent:#fff1f8;
+  --brand-ink:#741a52; /* headings/buttons */
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Cairo',sans-serif}
+html{scroll-behavior:smooth}
+a{color:#8d1d62;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 18px}
+
+/* ===================== TOPBAR ===================== */
+.topbar{
+  position:sticky; top:0; z-index:130;
+  background:linear-gradient(180deg, rgba(255,240,248,.92), rgba(255,240,248,.65));
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.topbar .row{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:10px 0}
+.brand{display:flex;align-items:center;gap:12px;min-width:0;padding:6px 10px;border-radius:14px;background:#fff;border:1px solid var(--line);box-shadow:0 6px 14px rgba(139,30,99,.06)}
+.brand .mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(180deg,#fff,#ffe6f2);border:1px solid #ef9fbe}
+.brand .title{display:flex;flex-direction:column;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand .title b{color:var(--brand-ink);font-weight:800}
+.brand .title small{color:#7a2459;font-weight:700}
+.lang-switch{display:flex;gap:8px;align-items:center}
+.lang-switch button,.login-btn,.nav-btn{background:var(--brand);color:var(--brand-ink);border:1px solid #ef9fbe;border-radius:12px;padding:8px 12px;font-weight:800;cursor:pointer}
+.lang-switch .secondary{background:#fff0f6;color:#7a2459;border:1px solid var(--line)}
+#sectionsBtn{background:#ffecf6;color:#7a2459;border:1px solid var(--line)}
+[data-guard]{display:none}
+
+/* ===================== HERO (Minimal & Calm) ===================== */
+.hero{
+  padding:clamp(36px,7vw,80px) 0;
+  background:linear-gradient(180deg,#fff1f7 0%,#fff7fb 70%,#fff 100%);
+  border-bottom:1px solid var(--line);
+}
+.hero-inner{display:grid}
+.hero-card{
+  max-width:860px;margin:0 auto;text-align:center;
+  background:#fff; border:1px solid var(--line); border-radius:22px;
+  padding:clamp(20px,3.2vw,28px);
+  box-shadow:0 14px 32px rgba(139,30,99,.10);
+}
+.hero-title{margin:0 0 6px;font-size:clamp(28px,5vw,42px);color:var(--brand-ink);font-weight:900}
+.hero-sub{margin:2px 0 14px;font-size:clamp(14px,2.2vw,18px);color:#a01f6e;font-weight:700}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:12px 0 16px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);color:#7a2459;font-weight:700}
+.chip i{color:#c4478d}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.btn{background:var(--brand);color:var(--brand-ink);border:1px solid #ef9fbe;border-radius:12px;padding:10px 14px;font-weight:900;cursor:pointer}
+.btn.secondary{background:#fff0f6;color:#7a2459;border:1px solid var(--line)}
+
+/* ===================== SECTIONS ===================== */
+section{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 26px rgba(139,30,99,.07);padding:24px;margin:22px auto;scroll-margin-top:90px}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-inline:8px;margin:-4px -6px 12px}
+.section-head .title{margin:0;color:#7a2459;display:flex;align-items:center;gap:10px;border-inline-start:6px solid var(--brand-2);padding-inline-start:10px}
+.section-head .title i{color:#c4478d}
+.section-head .actions{display:flex;gap:8px}
+.btn.icon{width:34px;height:34px;padding:0;display:inline-flex;align-items:center;justify-content:center;border-radius:10px}
+.btn.icon i{font-size:14px}
+.lead{font-size:18px;line-height:1.9}
+
+/* ===================== MEDIA GRID (images + videos + pdfs) ===================== */
+.media-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+@media (max-width:560px){.media-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}}
+.media-card{position:relative;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 6px 18px rgba(139,30,99,.07);overflow:hidden}
+.media-thumb{position:relative;width:100%;background:#000;overflow:hidden}
+.media-thumb[data-kind="image"]{aspect-ratio:3/2}
+.media-thumb[data-kind="video"]{aspect-ratio:16/9}
+.media-thumb[data-kind="pdf"]{aspect-ratio:3/2;background:#fff}
+.media-thumb img,.media-thumb video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;background:#fff}
+.media-actions{position:absolute;top:8px;inset-inline-end:8px;display:flex;gap:6px;z-index:2}
+.icon-btn{background:rgba(255,255,255,.98);border:1px solid var(--line);border-radius:10px;padding:6px;cursor:pointer}
+
+/* Cards */
+.cv-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}
+.cv-card.pale-glow{background:linear-gradient(180deg,#ffffff,#fff6fb);border-color:#f1b1cf;box-shadow:0 10px 24px rgba(139,30,99,.13),0 1px 0 rgba(255,245,252,.95) inset}
+
+/* ===================== SKILLS (styled) ===================== */
+.skills-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.skill{
+  background:linear-gradient(180deg,#ffffff 0%, #fff6fb 100%);
+  border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 20px rgba(139,30,99,.08);
+  padding:18px 16px;min-height:150px;display:flex;flex-direction:column;gap:8px;
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.skill:hover{transform:translateY(-2px);box-shadow:0 14px 26px rgba(139,30,99,.13);border-color:#f3b6d5;background:linear-gradient(180deg,#ffffff 0%, #ffe9f4 100%)}
+.skill i{
+  font-size:20px;color:#a8176a;background:#ffe9f4;border:1px solid #f2cfe0;border-radius:10px;padding:8px;line-height:1;
+  display:inline-flex;align-items:center;justify-content:center
+}
+.skill h4{margin:4px 0 0;font-size:18px;color:#7a2459;font-weight:800}
+.skill p{margin:0;color:var(--muted);line-height:1.7}
+
+/* ===================== FOOTER ===================== */
+footer{background:#f4c8dc;border-top:1px solid var(--line);text-align:center;padding:18px;color:#7a2459;font-weight:800}
+footer .en{font-family:'Poppins',sans-serif;font-weight:600;color:#444}
+
+/* ===================== LANGUAGE ===================== */
+.lang-ar [data-en], .lang-en [data-ar]{display:none}
+.lang-en{direction:ltr;font-family:'Poppins',sans-serif}
+.lang-en .section-head .title{border-inline-start:none;border-inline-end:6px solid var(--brand-2);padding-inline-start:0;padding-inline-end:10px}
+
+/* ===================== POPUP OVERLAY ===================== */
+body.no-scroll{overflow:hidden}
+#overlay{position:fixed;inset:0;background:rgba(34,20,32,.64);display:none;align-items:center;justify-content:center;padding:16px;z-index:150;-webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px)}
+#overlay.show{display:flex}
+#overlay .win{width:min(980px,96vw);max-height:92vh;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.35);display:flex;flex-direction:column;overflow:hidden}
+#overlay .toolbar{position:sticky;top:0;display:flex;align-items:center;gap:8px;justify-content:space-between;padding:8px 10px;background:linear-gradient(180deg,#fff,#fff6fb);border-bottom:1px solid var(--line);z-index:2}
+#overlay .toolbar .title{display:flex;align-items:center;gap:10px;font-weight:800;color:#7a2459;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#overlay .toolbar .actions{display:flex;gap:8px}
+#overlay .toolbar .btnx{background:#ffecf6;border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-weight:800;cursor:pointer}
+#overlay .toolbar .btnx[data-action="close"]{background:#efaccb;color:#5a1742;border-color:#ef9fbe}
+#overlay .content{position:relative;overflow:auto;-webkit-overflow-scrolling:touch;background:#000}
+#overlay .content-inner{display:grid;place-items:center;min-height:60vh}
+#overlay .content img{max-width:100%;height:auto;display:block}
+#overlay .content video{max-width:100%;max-height:84vh;display:block}
+#overlay .content iframe{width:100%;height:84vh;border:0;background:#fff}
+
+/* ===================== AUTH MODAL ===================== */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:200}
+.input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px}
+
+/* ===================== REVEAL & RESPONSIVE ===================== */
+.reveal{opacity:0;transform:translateY(14px) scale(.98);transition:opacity .45s ease, transform .45s ease}
+.reveal.show{opacity:1;transform:none}
+@media (max-width:680px){
+  .topbar .row{grid-template-columns:1fr;row-gap:8px}
+  .lang-switch{justify-content:center;flex-wrap:wrap}
+  .brand{justify-content:center}
+  section{padding:16px;margin:16px auto}
+  .lead{font-size:16px;line-height:1.8}
+}
+section ul{padding-inline-start:1.2em}
+section li{list-style:disc inside;line-height:1.9;overflow-wrap:anywhere}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+
+<body class="lang-ar">
+<!-- ===================== TOPBAR ===================== -->
+<div class="topbar" role="navigation">
+  <div class="container row">
+    <div class="brand" aria-label="Site brand">
+      <div class="mark" aria-hidden="true"></div>
+      <div class="title">
+        <b data-ar>المعلمة هند محيميد آل شرمة</b>
+        <b data-en>Teacher Hind Muhaimid Al-Sharma</b>
+        <small data-ar>مدرسة الشروق النموذجية</small>
+        <small data-en>Al-Shurouq Al-Namoudajia School</small>
+      </div>
+    </div>
+
+    <div></div>
+
+    <div class="lang-switch" aria-label="Language and account">
+      <button id="sectionsBtn" class="nav-btn" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-list"></i> <span data-ar>القائمة</span><span data-en>Sections</span></button>
+      <button class="secondary" id="to-ar" aria-label="Arabic">العربية</button>
+      <button id="to-en" aria-label="English">English</button>
+      <button id="loginBtn" class="login-btn" title="تسجيل الدخول" aria-label="Login"><i class="fa-solid fa-user"></i></button>
+      <button id="logoutBtn" class="login-btn" style="display:none" title="تسجيل الخروج" aria-label="Logout"><i class="fa-solid fa-right-from-bracket"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== HERO (New Minimal) ===================== -->
+<header class="hero">
+  <div class="container hero-inner">
+    <div class="hero-card">
+      <h1 class="hero-title" data-ar>المعلمة هند محيميد آل شرمة</h1>
+      <h1 class="hero-title" data-en>Teacher Hind Muhaimid Al-Sharma</h1>
+
+      <div class="hero-sub" data-ar>لغة عربية – الصف الرابع ابتدائي | مدرسة الشروق النموذجية</div>
+      <div class="hero-sub" data-en>Arabic – Grade 4 (Elementary) | Al-Shurouq Al-Namoudajia</div>
+
+      <!--<div class="hero-chips">
+        <span class="chip"><i class="fa-solid fa-graduation-cap"></i><span data-ar>بكالوريوس لغة عربية – جامعة نجران</span><span data-en>BA Arabic – Najran Univ.</span></span>
+        <span class="chip"><i class="fa-solid fa-envelope"></i> <a href="mailto:njnjnj209@gmail.com">njnjnj209@gmail.com</a></span>
+        <span class="chip"><i class="fa-solid fa-phone"></i> <a href="tel:0501375615">0501375615</a></span>
+      </div>-->
+
+      <div class="hero-cta">
+        <a class="btn" href="#cv" data-ar><i class="fa-solid fa-id-card"></i> السيرة الذاتية</a>
+        <a class="btn" href="#cv" data-en><i class="fa-solid fa-id-card"></i> CV</a>
+        <a class="btn secondary" href="#about" data-ar><i class="fa-solid fa-book-open"></i> نبذة</a>
+        <a class="btn secondary" href="#about" data-en><i class="fa-solid fa-book-open"></i> About</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== MAIN ===================== -->
+<main class="container">
+
+<!-- ===== About ===== -->
+<section id="about" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-book-open"></i><span data-ar>نبذة تعريفية</span><span data-en>About</span></h3>
+  </div>
+  <p class="lead" data-ar>
+    تصنع <b>هند</b> تعلّمًا لغويًا هادئًا ومتدرّجًا لطالبات الصف الرابع: قراءات قصيرة غنية، تمارين كتابة واضحة،
+    ومراجعات لطيفة تُشجّع الثقة وتراعي الفروق الفردية.
+  </p>
+  <p class="lead" data-en>
+    <b>Hind</b> builds calm, incremental Arabic learning for Grade-4: compact rich readings, clear writing drills,
+    and gentle reviews that grow confidence while honoring differences.
+  </p>
+</section>
+
+<!-- ===== Vision ===== -->
+<section id="vision" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-eye"></i><span data-ar>الرؤية</span><span data-en>Vision</span></h3>
+  </div>
+  <p class="lead" data-ar>
+    قارئات واثقات يستخدمن العربية للتفكير والتواصل وخدمة المجتمع المدرسي.
+  </p>
+  <p class="lead" data-en>
+    Confident readers who use Arabic to think, communicate, and contribute to school life.
+  </p>
+</section>
+
+<!-- ===== Vision 2030 Alignment ===== -->
+<section id="ksa2030" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-flag"></i><span data-ar>التوافق مع رؤية السعودية 2030</span><span data-en>Alignment with Saudi Vision 2030</span></h3>
+  </div>
+  <ul>
+    <li data-ar>تعزيز الهوية واللغة بنصوص وطنية معاصرة.</li>
+    <li data-ar>رفع النواتج عبر تتبّع تقدّم الطالبة وتدخلات قصيرة.</li>
+    <li data-ar>مهارات تعاون وتواصل ومواطنة رقمية.</li>
+
+    <li data-en>Identity & language via contemporary national texts.</li>
+    <li data-en>Outcome gains through progress tracking & micro-supports.</li>
+    <li data-en>Collaboration, communication, and digital citizenship.</li>
+  </ul>
+</section>
+
+<!-- ===== Mission ===== -->
+<section id="mission" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-bullseye"></i><span data-ar>الرسالة</span><span data-en>Mission</span></h3>
+  </div>
+  <p class="lead" data-ar>
+    تمكين الطالبة من فهم النصوص وكتابة فِقَر منظّمة والتعبير الشفهي الواثق عبر دروس مركّزة وتقويم بنائي وتواصل مع الأسرة.
+  </p>
+  <p class="lead" data-en>
+    Enable learners to comprehend texts, write organized paragraphs, and speak confidently—through focused lessons, formative checks, and family partnership.
+  </p>
+</section>
+
+<!-- ===== Saudi Teaching Objectives ===== -->
+<section id="ksa-goals" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-list-check"></i><span data-ar>أهداف التعليم في السعودية</span><span data-en>Saudi Teaching Objectives</span></h3>
+  </div>
+  <ul>
+    <li data-ar>إتقان القراءة (طلاقة–فهم–استنتاج).</li>
+    <li data-ar>الكتابة المعبّرة (تنظيم الفِقَر–الترقيم–مراجعة).</li>
+    <li data-ar>المعرفة اللغوية (إملاء–تراكيب–مفردات).</li>
+    <li data-ar>التواصل الشفهي (حوار–إصغاء–عرض).</li>
+    <li data-ar>القيم والسلوك (احترام، مسؤولية، أمان رقمي).</li>
+
+    <li data-en>Reading mastery (fluency–comprehension–inference).</li>
+    <li data-en>Expressive writing (paragraphing–punctuation–revision).</li>
+    <li data-en>Language (spelling–grammar–vocabulary).</li>
+    <li data-en>Oral communication (dialogue–listening–presenting).</li>
+    <li data-en>Values & conduct (respect, responsibility, digital safety).</li>
+  </ul>
+</section>
+
+<!-- ===== Professional Charter ===== -->
+<section id="ethics" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-scale-balanced"></i><span data-ar>الميثاق المهني والقيم والمسؤوليات</span><span data-en>Professional Charter</span></h3>
+  </div>
+
+  <div class="cv-card pale-glow">
+    <h4 data-ar>القيم</h4><h4 data-en>Values</h4>
+    <ul>
+      <li data-ar>النزاهة والإنصاف واحترام التنوع.</li>
+      <li data-ar>الخصوصية والسلامة الرقمية والمسؤولية.</li>
+      <li data-ar>التعلم المستمر وعقلية النمو.</li>
+
+      <li data-en>Integrity, fairness, and respect for diversity.</li>
+      <li data-en>Privacy, digital safety, responsibility.</li>
+      <li data-en>Continuous learning and a growth mindset.</li>
+    </ul>
+  </div>
+
+  <div class="cv-card pale-glow">
+    <h4 data-ar>مسؤولياتي تجاه الطالبات</h4><h4 data-en>Duties to Students</h4>
+    <ul>
+      <li data-ar>بيئة آمنة تشجّع المحاولة والتعلّم من التغذية الراجعة.</li>
+      <li data-ar>تمايز وخطط دعم قصيرة مبنية على بيانات الأداء.</li>
+      <li data-ar>روبركات واضحة للقراءة والكتابة والتعبير.</li>
+
+      <li data-en>Safe space with feedback-driven growth.</li>
+      <li data-en>Differentiation & short data-informed supports.</li>
+      <li data-en>Transparent rubrics for literacy.</li>
+    </ul>
+  </div>
+
+  <div class="cv-card pale-glow">
+    <h4 data-ar>شراكة الأسرة والمدرسة</h4><h4 data-en>Family–School Partnership</h4>
+    <ul>
+      <li data-ar>تحديثات مختصرة أسبوعية ومهام منزلية داعمة.</li>
+      <li data-ar>لقاءات دورية لمراجعة التقدم وتحديث الأهداف.</li>
+
+      <li data-en>Concise weekly updates and helpful home tasks.</li>
+      <li data-en>Regular check-ins to review progress & goals.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== CV (text; tiny optional upload icon) ===== -->
+<section id="cv" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-id-card"></i><span data-ar>السيرة الذاتية</span><span data-en>Curriculum Vitae</span></h3>
+    <div class="actions" data-guard>
+      <!-- tiny, unobtrusive icon -->
+      <label for="cvImgInput" class="btn icon" title="رفع صورة للسيرة (اختياري)"><i class="fa-solid fa-image"></i></label>
+      <input id="cvImgInput" type="file" accept="image/*" hidden>
+    </div>
+  </div>
+
+  <div class="cv-card pale-glow" style="margin-bottom:14px">
+    <h4 style="margin-top:0;color:#7a2459">البيانات</h4>
+    <ul style="margin:0">
+      <li>الاسم: <b>هند محيميد آل شرمة</b></li>
+      <li>المدرسة: <b>مدرسة الشروق النموذجية</b> / <b>Al-Shurouq Al-Namoudajia</b></li>
+      <li>التخصص: <b>لغة عربية – الصف الرابع</b></li>
+      <li>الهاتف: <a href="tel:0501375615">0501375615</a></li>
+      <li>البريد: <a href="mailto:njnjnj209@gmail.com">njnjnj209@gmail.com</a></li>
+    </ul>
+  </div>
+
+  <div class="cv-card pale-glow">
+    <h4 style="margin-top:0;color:#7a2459">التعليم</h4>
+    <ul>
+      <li data-ar>بكالوريوس <b>لغة عربية</b> – <b>جامعة نجران</b>.</li>
+      <li data-en><b>BA in Arabic Language</b> – <b>Najran University</b>.</li>
+    </ul>
+
+    <h4 style="color:#7a2459">الخبرات</h4>
+    <ul>
+      <li data-ar>وحدات تراكمية في القراءة والكتابة مع تقويمات قصيرة أسبوعية.</li>
+      <li data-ar>معالجة التعثرات في الإملاء والتراكيب وبناء المفردات.</li>
+
+      <li data-en>Cumulative literacy units with weekly quick checks.</li>
+      <li data-en>Targeted supports for spelling, grammar, vocabulary.</li>
+    </ul>
+
+    <h4 style="color:#7a2459">المهارات</h4>
+    <ul>
+      <li data-ar>طلاقة قرائية وفهم | كتابة منظّمة | عرض شفهي.</li>
+      <li data-ar>إدارة صف إيجابية | تمايز | روبركات وتقويم شفاف.</li>
+
+      <li data-en>Reading fluency & comprehension | Structured writing | Speaking.</li>
+      <li data-en>Positive management | Differentiation | Transparent rubrics.</li>
+    </ul>
+  </div>
+
+  <!-- Optional CV image holder -->
+  <div id="cvImgHolder" class="cv-card" style="display:none;padding:0;overflow:hidden"></div>
+</section>
+
+<!-- ===== Certifications (images + PDFs) ===== -->
+<section id="certs" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-certificate"></i><span data-ar>الشهادات والدورات (صور / PDF)</span><span data-en>Certifications (Images / PDFs)</span></h3>
+    <div class="actions" data-guard>
+      <label for="certInput" class="btn icon" title="رفع صور أو PDF"><i class="fa-solid fa-upload"></i></label>
+      <input id="certInput" type="file" multiple accept="image/*,application/pdf" hidden>
+    </div>
+  </div>
+  <div class="media-grid" id="certGrid"></div>
+</section>
+
+<!-- ===== MEDIA BLOCKS ===== -->
+<section id="media-strategy" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-lightbulb"></i><span data-ar>استراتيجيات التدريس (وسائط)</span><span data-en>Teaching Strategies (Media)</span></h3>
+    <div class="actions" data-guard>
+      <label for="stratInput" class="btn icon" title="رفع صور/فيديو"><i class="fa-solid fa-upload"></i></label>
+      <input id="stratInput" type="file" multiple accept="image/*,video/*" hidden>
+    </div>
+  </div>
+  <div class="media-grid" id="stratGrid"></div>
+</section>
+
+<section id="media-activities" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-layer-group"></i><span data-ar>الأنشطة</span><span data-en>Activities</span></h3>
+    <div class="actions" data-guard>
+      <label for="actsInput" class="btn icon" title="رفع صور/فيديو"><i class="fa-solid fa-upload"></i></label>
+      <input id="actsInput" type="file" multiple accept="image/*,video/*" hidden>
+    </div>
+  </div>
+  <div class="media-grid" id="actsGrid"></div>
+</section>
+
+<section id="media-programs" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-calendar-check"></i><span data-ar>البرامج</span><span data-en>Programs</span></h3>
+    <div class="actions" data-guard>
+      <label for="progInput" class="btn icon" title="رفع صور/فيديو"><i class="fa-solid fa-upload"></i></label>
+      <input id="progInput" type="file" multiple accept="image/*,video/*" hidden>
+    </div>
+  </div>
+  <div class="media-grid" id="progGrid"></div>
+</section>
+
+<section id="media-initiatives" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-seedling"></i><span data-ar>المبادرات</span><span data-en>Initiatives</span></h3>
+    <div class="actions" data-guard>
+      <label for="initInput" class="btn icon" title="رفع صور/فيديو"><i class="fa-solid fa-upload"></i></label>
+      <input id="initInput" type="file" multiple accept="image/*,video/*" hidden>
+    </div>
+  </div>
+  <div class="media-grid" id="initGrid"></div>
+</section>
+
+<section id="media-support" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-hands-holding-child"></i><span data-ar>الدعم والتأسيس</span><span data-en>Support & Foundation</span></h3>
+    <div class="actions" data-guard>
+      <label for="supInput" class="btn icon" title="رفع صور/فيديو"><i class="fa-solid fa-upload"></i></label>
+      <input id="supInput" type="file" multiple accept="image/*,video/*" hidden>
+    </div>
+  </div>
+  <div class="media-grid" id="supGrid"></div>
+</section>
+
+<section id="media-worksheets" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-file-pen"></i><span data-ar>أوراق العمل</span><span data-en>Worksheets</span></h3>
+    <div class="actions" data-guard>
+      <label for="wsInput" class="btn icon" title="رفع صور/فيديو"><i class="fa-solid fa-upload"></i></label>
+      <input id="wsInput" type="file" multiple accept="image/*,video/*" hidden>
+    </div>
+  </div>
+  <div class="media-grid" id="wsGrid"></div>
+</section>
+
+<!-- ===== Modern Skills & Techniques ===== -->
+<section id="skills" class="reveal">
+  <div class="section-head">
+    <h3 class="title"><i class="fa-solid fa-chalkboard-user"></i><span data-ar>مهارات وتقنيات حديثة</span><span data-en>Modern Skills & Techniques</span></h3>
+  </div>
+  <div class="skills-grid">
+    <div class="skill"><i class="fa-solid fa-book-open-reader"></i><h4 data-ar>دوائر القراءة</h4><h4 data-en>Literature Circles</h4><p data-ar>أدوار محددة تعمّق الفهم وتوزّع المسؤولية.</p><p data-en>Role-based groups deepen understanding.</p></div>
+    <div class="skill"><i class="fa-solid fa-puzzle-piece"></i><h4 data-ar>الجيسو (Jigsaw)</h4><h4 data-en>Jigsaw</h4><p data-ar>كل طالبة تتقن جزءًا وتعلّمه لزميلاتها.</p><p data-en>Each learner masters & teaches a piece.</p></div>
+    <div class="skill"><i class="fa-solid fa-hourglass-start"></i><h4 data-ar>مراجعات دقيقة</h4><h4 data-en>1-Minute Fluency</h4><p data-ar>قراءات موقّتة مع مخطط تقدّم بسيط.</p><p data-en>Timed reads + simple progress chart.</p></div>
+    <div class="skill"><i class="fa-solid fa-quote-left"></i><h4 data-ar>دفتر الاقتباسات</h4><h4 data-en>Quote Journal</h4><p data-ar>تحويل الجمل الجميلة إلى نماذج كتابة.</p><p data-en>Turn striking lines into models.</p></div>
+    <div class="skill"><i class="fa-solid fa-sitemap"></i><h4 data-ar>خرائط القصة</h4><h4 data-en>Story Mapping</h4><p data-ar>شخصيات–مشكلة–حل لتلخيص السرد.</p><p data-en>Character–problem–solution.</p></div>
+    <div class="skill"><i class="fa-solid fa-language"></i><h4 data-ar>بطاقات مفردات متدرجة</h4><h4 data-en>Tiered Vocabulary</h4><p data-ar>تعريف–مثال–مرادف/ضد وجملة فورية.</p><p data-en>Defn/example/syn-ant + sentence.</p></div>
+    <div class="skill"><i class="fa-solid fa-chalkboard"></i><h4 data-ar>الدرس المصغّر</h4><h4 data-en>Micro-Lesson</h4><p data-ar>شرح مركز 4–6 دقائق يعقبه تطبيق سريع.</p><p data-en>4–6 minute focus + quick task.</p></div>
+    <div class="skill"><i class="fa-solid fa-brain"></i><h4 data-ar>الترميز المزدوج</h4><h4 data-en>Dual Coding</h4><p data-ar>دمج النصوص مع الرسومات لتثبيت التعلّم.</p><p data-en>Combine text + visuals.</p></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div data-ar>© جميع الحقوق محفوظة</div>
+    <div data-en class="en">© All rights reserved</div>
+  </div>
+</footer>
+
+<!-- POPUP -->
+<div id="overlay" role="dialog" aria-modal="true" aria-label="Viewer"></div>
+
+<!-- ===== Auth Modal ===== -->
+<div id="authModal" class="modal" aria-hidden="true">
+  <div class="panel" style="background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.2);padding:20px;min-width:320px;max-width:90vw">
+    <h3 style="margin-top:0;color:#7a2459" data-ar>تسجيل الدخول</h3>
+    <h3 style="margin-top:0;color:#7a2459" data-en>Sign in</h3>
+    <input id="emailInput" type="email" class="input" placeholder="email@example.com" style="margin-bottom:8px" autocomplete="username">
+    <input id="passwordInput" type="password" class="input" placeholder="password" style="margin-bottom:8px" autocomplete="current-password">
+    <div class="cta" style="margin-top:12px;display:flex;gap:8px">
+      <button id="signInBtn" class="btn" data-ar>تسجيل الدخول</button>
+      <button id="signInBtn_en" class="btn" data-en>Sign in</button>
+      <button id="closeAuth" class="btn secondary" data-ar>إغلاق</button>
+      <button id="closeAuth_en" class="btn secondary" data-en>Close</button>
+    </div>
+    <p id="authMsg" class="note" style="margin-top:10px;color:#7a2459;font-weight:700"></p>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  /* ===== Language Toggle ===== */
+  const root = document.body;
+  document.getElementById('to-ar').onclick = ()=>{ root.classList.add('lang-ar'); root.classList.remove('lang-en'); };
+  document.getElementById('to-en').onclick = ()=>{ root.classList.add('lang-en'); root.classList.remove('lang-ar'); };
+
+  /* ===== Sections dropdown (floating) ===== */
+  const sectionsPanel = document.createElement('div');
+  sectionsPanel.id = 'sectionsPanel';
+  sectionsPanel.style.cssText = 'position:fixed;inset-inline-end:16px;top:66px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 40px rgba(139,30,99,.12);padding:10px;display:none;z-index:140;max-height:60vh;overflow:auto;min-width:240px';
+  document.body.appendChild(sectionsPanel);
+
+  const sectionsBtn = document.getElementById('sectionsBtn');
+  const SECTIONS = [
+    ['about','fa-book-open','نبذة','About'],
+    ['vision','fa-eye','الرؤية','Vision'],
+    ['ksa2030','fa-flag','رؤية 2030','Vision 2030'],
+    ['mission','fa-bullseye','الرسالة','Mission'],
+    ['ksa-goals','fa-list-check','أهداف التعليم','Objectives'],
+    ['ethics','fa-scale-balanced','الميثاق المهني','Charter'],
+    ['cv','fa-id-card','السيرة الذاتية','CV'],
+    ['certs','fa-certificate','الشهادات','Certifications'],
+    ['media-strategy','fa-lightbulb','الاستراتيجيات (وسائط)','Strategies'],
+    ['media-activities','fa-layer-group','الأنشطة','Activities'],
+    ['media-programs','fa-calendar-check','البرامج','Programs'],
+    ['media-initiatives','fa-seedling','المبادرات','Initiatives'],
+    ['media-support','fa-hands-holding-child','الدعم والتأسيس','Support'],
+    ['media-worksheets','fa-file-pen','أوراق العمل','Worksheets'],
+    ['skills','fa-chalkboard-user','مهارات وتقنيات','Skills']
+  ];
+  sectionsPanel.innerHTML = SECTIONS
+    .map(([id,icon,ar,en])=>`<a href="#${id}" style="display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;color:#7a2459;font-weight:700"><i class="fa-solid ${icon}" style="color:#c4478d"></i><span data-ar>${ar}</span><span data-en>${en}</span></a>`)
+    .join('');
+  sectionsPanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',e=>{
+    e.preventDefault(); sectionsPanel.style.display='none'; sectionsBtn.setAttribute('aria-expanded','false');
+    document.getElementById(a.getAttribute('href').slice(1)).scrollIntoView({behavior:'smooth'});
+  }));
+  sectionsBtn.onclick = ()=>{
+    const show = sectionsPanel.style.display!=='block';
+    sectionsPanel.style.display = show ? 'block' : 'none';
+    sectionsBtn.setAttribute('aria-expanded', show ? 'true' : 'false');
+  };
+
+  /* ===== Overlay / Viewer (images/videos/PDF) ===== */
+  const overlay = document.getElementById('overlay');
+  function lockBody(lock){ document.body.classList.toggle('no-scroll', !!lock); }
+  function buildWindow({ title, icon = 'fa-rectangle-list', actions = [] }){
+    overlay.innerHTML = `
+      <div class="win" role="document">
+        <div class="toolbar">
+          <div class="title">
+            <i class="fa-solid ${icon}"></i>
+            <span title="${title || ''}">${title || ''}</span>
+          </div>
+          <div class="actions">
+            ${actions.map(a =>
+              a.href
+                ? `<a class="btnx" ${a.download ? 'download' : ''} href="${a.href}" target="${a.target || '_self'}" rel="${a.rel || 'noopener'}" title="${a.label}">${a.label}</a>`
+                : `<button class="btnx" data-action="${a.action}" title="${a.label}">${a.label}</button>`
+            ).join('')}
+            <button class="btnx" data-action="close" aria-label="Close">✕ إغلاق</button>
+          </div>
+        </div>
+        <div class="content"><div class="content-inner"></div></div>
+      </div>`;
+    overlay.querySelector('[data-action="close"]').addEventListener('click', closeOverlay);
+    overlay.addEventListener('click', (e)=>{ if (e.target === overlay) closeOverlay(); }, { once:true });
+    return { content: overlay.querySelector('.content-inner') };
+  }
+  function showOverlay(){ overlay.classList.add('show'); lockBody(true); }
+  function closeOverlay(){ overlay.classList.remove('show'); overlay.innerHTML=''; lockBody(false); }
+  window.closeOverlay = closeOverlay;
+
+  function openImage(src,name=''){
+    overlay.innerHTML=''; const actions=[{href:src,label:'Download',download:true},{href:src,label:'Open tab',target:'_blank',rel:'noopener'}];
+    const { content } = buildWindow({ title:name||'Image', icon:'fa-image', actions });
+    const img=new Image(); img.src=src; img.alt=name||'image'; img.style.maxHeight='84vh'; content.appendChild(img); showOverlay();
+  }
+  function openVideo(src,name=''){
+    overlay.innerHTML=''; const actions=[{href:src,label:'Download',download:true},{href:src,label:'Open tab',target:'_blank',rel:'noopener'}];
+    const { content } = buildWindow({ title:name||'Video', icon:'fa-film', actions });
+    const v=document.createElement('video'); v.src=src; v.controls=true; v.playsInline=true; v.autoplay=true; v.style.maxHeight='84vh'; content.appendChild(v); showOverlay();
+  }
+  function openPDF(src,name=''){
+    overlay.innerHTML=''; const actions=[{href:src,label:'Download',download:true},{href:src,label:'Open tab',target:'_blank',rel:'noopener'}];
+    const { content } = buildWindow({ title:name||'PDF', icon:'fa-file-pdf', actions });
+    const frame=document.createElement('iframe'); frame.src=src; content.appendChild(frame); showOverlay();
+  }
+  window.openImage = openImage; window.openVideo = openVideo; window.openPDF = openPDF;
+
+  /* ===== Reveal on scroll ===== */
+  const io = new IntersectionObserver((entries)=>{ entries.forEach(en=>{ if (en.isIntersecting){ en.target.classList.add('show'); io.unobserve(en.target); } }); }, { threshold:.12 });
+  document.querySelectorAll('.reveal, .media-card, .skill').forEach(el=>io.observe(el));
+
+  /* ===== Auth & Supabase ===== */
+  const authModal = document.getElementById('authModal');
+  const emailInput = document.getElementById('emailInput');
+  const passwordInput = document.getElementById('passwordInput');
+  const msg = document.getElementById('authMsg');
+  const showAuth = show => { authModal.style.display = show ? 'flex' : 'none'; authModal.setAttribute('aria-hidden', show ? 'false' : 'true'); };
+  const setMsg = t => { msg.textContent = t || ''; };
+  function setGuardVisible(isAuthed){
+    document.querySelectorAll('[data-guard]').forEach(el=>{ el.style.display = isAuthed ? 'flex' : 'none'; });
+    document.getElementById('logoutBtn').style.display = isAuthed ? 'inline-block' : 'none';
+  }
+  document.getElementById('loginBtn').onclick = ()=> showAuth(true);
+  document.getElementById('closeAuth').onclick = document.getElementById('closeAuth_en').onclick = ()=> showAuth(false);
+
+  const SUPABASE_URL = 'https://znqjxqlrfslggjqaneho.supabase.co';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpucWp4cWxyZnNsZ2dqcWFuZWhvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE5ODcyMjYsImV4cCI6MjA3NzU2MzIyNn0.Bd2a4yL24hMkFDykTIrEC5Jd-ZOHD90ckWm86w3-HEw';
+  const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  const MEDIA_BUCKET = 'mida';
+  const BASE = 'hind4'; /* namespace */
+
+  const PATH = {
+    STR:   `${BASE}/strategy`,
+    ACT:   `${BASE}/activities`,
+    PROG:  `${BASE}/programs`,
+    INIT:  `${BASE}/initiatives`,
+    SUP:   `${BASE}/support`,
+    WS:    `${BASE}/worksheets`,
+    CERT:  `${BASE}/certifications`,
+    CVIMG: `${BASE}/cvimg`
+  };
+
+  async function getUser(){ const { data } = await supabaseClient.auth.getUser(); return data?.user ?? null; }
+  function requireUser(user){ if(!user){ showAuth(true); return false; } return true; }
+
+  document.getElementById('signInBtn').onclick = document.getElementById('signInBtn_en').onclick = async ()=>{
+    const email=(emailInput.value||'').trim(); const password=(passwordInput.value||'').trim();
+    if(!email||!password){ setMsg('أدخلي الإيميل وكلمة المرور / Enter email & password'); return; }
+    const { error } = await supabaseClient.auth.signInWithPassword({ email, password });
+    if(error){ setMsg('خطأ: ' + error.message); return; }
+    setMsg('تم تسجيل الدخول ✓'); showAuth(false);
+    const user = await getUser(); setGuardVisible(!!user);
+  };
+  document.getElementById('logoutBtn').onclick = async ()=>{ await supabaseClient.auth.signOut(); setMsg('تم تسجيل الخروج'); setGuardVisible(false); };
+
+  const publicUrl = path => supabaseClient.storage.from(MEDIA_BUCKET).getPublicUrl(path).data.publicUrl;
+
+  async function listAt(path){
+    const { data } = await supabaseClient.storage.from(MEDIA_BUCKET)
+      .list(path, { limit:200, sortBy:{column:'created_at', order:'desc'} });
+    return (data||[]).map(it=>({ name: it.name, path: `${path}/${it.name}`, url: publicUrl(`${path}/${it.name}`) }));
+  }
+  async function uploadManyAt(path, files){
+    const user = await getUser(); if(!requireUser(user)) return;
+    for(const f of files){
+      const safe = f.name.replace(/\s+/g,'_').toLowerCase();
+      const fixed = (f.type === 'video/mp4' && /\.mb4$/i.test(safe)) ? safe.replace(/\.mb4$/i,'.mp4') : safe;
+      const to = `${path}/${Date.now()}_${fixed}`;
+      await supabaseClient.storage.from(MEDIA_BUCKET).upload(to, f, { cacheControl:'3600', upsert:false });
+    }
+    loadAll();
+  }
+  async function uploadSingle(path, file){
+    const user = await getUser(); if(!requireUser(user)) return;
+    const existing = await listAt(path);
+    if(existing.length){ await supabaseClient.storage.from(MEDIA_BUCKET).remove(existing.map(e=>e.path)); }
+    const safe = file.name.replace(/\s+/g,'_').toLowerCase();
+    const to = `${path}/${Date.now()}_${safe}`;
+    await supabaseClient.storage.from(MEDIA_BUCKET).upload(to, file, { cacheControl:'3600', upsert:false });
+    loadAll();
+  }
+  async function removeFile(path){
+    const user = await getUser(); if(!requireUser(user)) return;
+    await supabaseClient.storage.from(MEDIA_BUCKET).remove([path]);
+    loadAll();
+  }
+
+  function renderMixedGrid(container, files){
+    if (!files.length){
+      container.innerHTML = '<p style="grid-column:1/-1;color:#6f5a69;margin:6px 2px">لا توجد عناصر حتى الآن.<span data-en> No items yet.</span></p>';
+      return;
+    }
+    container.innerHTML = files.map(f=>{
+      const isImg = /\.(png|jpe?g|webp|gif|svg)$/i.test(f.name);
+      const isVid = /\.(mp4|mb4|m4v|webm|ogg|ogv|mov|3gp|3gpp|mkv|avi|mpeg|mpg)$/i.test(f.name);
+      const isPdf = /\.pdf$/i.test(f.name);
+      if (isImg){
+        return `
+          <div class="media-card reveal">
+            <div class="media-actions" data-guard>
+              <button class="icon-btn" data-del="${f.path}" title="حذف / Delete"><i class="fa-solid fa-trash"></i></button>
+              <a class="icon-btn" href="${f.url}" download title="تنزيل / Download"><i class="fa-solid fa-download"></i></a>
+            </div>
+            <div class="media-thumb" data-kind="image">
+              <img loading="lazy" src="${f.url}" alt="${f.name}" onclick="openImage('${f.url}','${f.name}')">
+            </div>
+          </div>`;
+      }
+      if (isVid){
+        return `
+          <div class="media-card reveal">
+            <div class="media-actions" data-guard>
+              <button class="icon-btn" data-del="${f.path}" title="حذف / Delete"><i class="fa-solid fa-trash"></i></button>
+              <a class="icon-btn" href="${f.url}" download title="تنزيل / Download"><i class="fa-solid fa-download"></i></a>
+            </div>
+            <div class="media-thumb" data-kind="video" onclick="openVideo('${f.url}')">
+              <video src="${f.url}" muted playsinline preload="metadata"></video>
+            </div>
+          </div>`;
+      }
+      if (isPdf){
+        const name = f.name.replace(/_/g,' ');
+        return `
+          <div class="media-card reveal">
+            <div class="media-actions" data-guard>
+              <button class="icon-btn" data-del="${f.path}" title="حذف / Delete"><i class="fa-solid fa-trash"></i></button>
+              <a class="icon-btn" href="${f.url}" download title="تنزيل / Download"><i class="fa-solid fa-download"></i></a>
+            </div>
+            <div class="media-thumb" data-kind="pdf" onclick="openPDF('${f.url}','${name}')">
+              <div style="position:absolute;inset:0;display:grid;place-items:center;background:#fff">
+                <div style="text-align:center">
+                  <i class="fa-solid fa-file-pdf" style="font-size:36px;color:#a8176a"></i>
+                  <div style="margin-top:6px;color:#7a2459;font-weight:800;max-width:90%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${name}</div>
+                </div>
+              </div>
+            </div>
+          </div>`;
+      }
+      return `
+        <div class="media-card reveal">
+          <div class="media-actions" data-guard>
+            <button class="icon-btn" data-del="${f.path}" title="حذف / Delete"><i class="fa-solid fa-trash"></i></button>
+            <a class="icon-btn" href="${f.url}" download title="تنزيل / Download"><i class="fa-solid fa-download"></i></a>
+          </div>
+          <div class="media-thumb" data-kind="file" style="aspect-ratio:3/2;display:grid;place-items:center;background:#fff">
+            <div style="text-align:center;padding:18px">
+              <i class="fa-solid fa-file" style="font-size:28px;color:#a01f6e"></i>
+              <div style="margin-top:8px;font-weight:800;color:#7a2459;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 8px">${f.name}</div>
+            </div>
+          </div>
+        </div>`;
+    }).join('');
+
+    container.querySelectorAll('[data-del]').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{ e.stopPropagation(); const path = btn.dataset.del;
+        if (confirm('هل تريدين حذف هذا الملف؟ / Delete this file?')) removeFile(path);
+      });
+    });
+    container.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  }
+
+  function renderSingleImage(holderEl, files, aspect='3/4'){
+    holderEl.innerHTML = '';
+    if(!files.length){ holderEl.style.display='none'; return; }
+    holderEl.style.display='block';
+    const f = files[0]; const url = f.url;
+    const block = document.createElement('div');
+    block.style.position='relative';
+    block.innerHTML = `
+      <div class="media-actions" data-guard style="position:absolute;top:8px;inset-inline-end:8px;display:flex;gap:6px;z-index:2">
+        <button class="icon-btn" data-del="${f.path}" title="حذف / Delete"><i class="fa-solid fa-trash"></i></button>
+        <a class="icon-btn" href="${url}" download title="تنزيل / Download"><i class="fa-solid fa-download"></i></a>
+      </div>
+      <div class="media-thumb" data-kind="image" style="aspect-ratio:${aspect}">
+        <img src="${url}" alt="${f.name}" onclick="openImage('${url}','${f.name}')">
+      </div>`;
+    holderEl.appendChild(block);
+    block.querySelector('[data-del]').addEventListener('click', ()=>{ if(confirm('Delete this image?')) removeFile(f.path); });
+  }
+
+  /* ===== Bind inputs ===== */
+  const stratGrid = document.getElementById('stratGrid');
+  const actsGrid  = document.getElementById('actsGrid');
+  const progGrid  = document.getElementById('progGrid');
+  const initGrid  = document.getElementById('initGrid');
+  const supGrid   = document.getElementById('supGrid');
+  const wsGrid    = document.getElementById('wsGrid');
+  const certGrid  = document.getElementById('certGrid');
+  const cvImgHolder = document.getElementById('cvImgHolder');
+
+  document.getElementById('stratInput')?.addEventListener('change', e=>uploadManyAt(PATH.STR , e.target.files));
+  document.getElementById('actsInput') ?.addEventListener('change', e=>uploadManyAt(PATH.ACT , e.target.files));
+  document.getElementById('progInput') ?.addEventListener('change', e=>uploadManyAt(PATH.PROG, e.target.files));
+  document.getElementById('initInput') ?.addEventListener('change', e=>uploadManyAt(PATH.INIT, e.target.files));
+  document.getElementById('supInput')  ?.addEventListener('change', e=>uploadManyAt(PATH.SUP , e.target.files));
+  document.getElementById('wsInput')   ?.addEventListener('change', e=>uploadManyAt(PATH.WS  , e.target.files));
+  document.getElementById('certInput') ?.addEventListener('change', e=>uploadManyAt(PATH.CERT, e.target.files));
+  document.getElementById('cvImgInput')?.addEventListener('change', e=>{ if(e.target.files?.[0]) uploadSingle(PATH.CVIMG, e.target.files[0]); });
+
+  async function loadAll(){
+    const [strat, acts, prog, init, sup, ws, certs, cvimg, user] = await Promise.all([
+      listAt(PATH.STR), listAt(PATH.ACT), listAt(PATH.PROG), listAt(PATH.INIT),
+      listAt(PATH.SUP), listAt(PATH.WS), listAt(PATH.CERT), listAt(PATH.CVIMG), getUser()
+    ]);
+    renderMixedGrid(stratGrid, strat);
+    renderMixedGrid(actsGrid, acts);
+    renderMixedGrid(progGrid, prog);
+    renderMixedGrid(initGrid, init);
+    renderMixedGrid(supGrid,  sup);
+    renderMixedGrid(wsGrid,   ws);
+    renderMixedGrid(certGrid, certs);
+    renderSingleImage(cvImgHolder, cvimg, '3/4');
+    setGuardVisible(!!user);
+  }
+  supabaseClient.auth.onAuthStateChange(async ()=>{ loadAll(); });
+  loadAll();
+});
+</script>
+</body>
+</html>
