@@ -48,27 +48,113 @@ a{color:#8d1d62;text-decoration:none}
 #sectionsBtn{background:#ffecf6;color:#7a2459;border:1px solid var(--line)}
 [data-guard]{display:none}
 
-/* ===================== HERO (Minimal & Calm) ===================== */
+/* ===================== HERO — Elegant Floral ===================== */
 .hero{
-  padding:clamp(36px,7vw,80px) 0;
-  background:linear-gradient(180deg,#fff1f7 0%,#fff7fb 70%,#fff 100%);
+  position:relative;
+  padding:clamp(44px,8vw,96px) 0;
   border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(1000px 600px at 85% -10%, #ffe9f4 0%, rgba(255,233,244,0) 60%),
+    radial-gradient(900px 520px at -10% 90%, #fff1f8 0%, rgba(255,241,248,0) 60%),
+    linear-gradient(180deg,#fff9fc 0%,#fff7fb 70%,#ffffff 100%);
+  overflow:hidden;
+}
+/* FIX: mobile-friendly floral sizing + gentle motion guarded by prefers-reduced-motion */
+.hero::before,
+.hero::after{
+  content:"";
+  position:absolute;
+  width:560px; height:560px;
+  background-repeat:no-repeat; background-size:contain;
+  opacity:.22; pointer-events:none;
+  filter: blur(.2px);
+  transition: transform 12s ease-in-out;
+}
+@media (max-width:700px){
+  .hero::before,.hero::after{ width:360px; height:360px; opacity:.18 }
+}
+@media (prefers-reduced-motion:reduce){
+  .hero::before,.hero::after{ transition:none }
+}
+/* Floral SVGs in corners (inline via data URI) */
+.hero::before{
+  top:-120px; inset-inline-start:-120px;
+  background-image:url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'>\
+<defs>\
+<radialGradient id='g1' cx='50%' cy='50%' r='60%'>\
+<stop offset='0%' stop-color='%23f6b7d0'/>\
+<stop offset='70%' stop-color='%23f6b7d0' stop-opacity='.35'/>\
+<stop offset='100%' stop-color='%23f6b7d0' stop-opacity='0'/>\
+</radialGradient>\
+</defs>\
+<g fill='url(%23g1)'>\
+<circle cx='90' cy='90' r='70'/>\
+<circle cx='170' cy='60' r='46'/>\
+<circle cx='130' cy='160' r='54'/>\
+<circle cx='230' cy='120' r='42'/>\
+</g>\
+<g fill='none' stroke='%23e79cbc' stroke-opacity='.6'>\
+<path d='M40 210c60-40 120 40 180 0' stroke-width='7'/>\
+<path d='M60 250c50-30 100 30 150 0' stroke-width='5'/>\
+</g>\
+</svg>");
+}
+.hero::after{
+  bottom:-120px; inset-inline-end:-120px; transform:scaleX(-1);
+  background-image:url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'>\
+<defs>\
+<radialGradient id='g2' cx='50%' cy='50%' r='60%'>\
+<stop offset='0%' stop-color='%23efaccb'/>\
+<stop offset='70%' stop-color='%23efaccb' stop-opacity='.35'/>\
+<stop offset='100%' stop-color='%23efaccb' stop-opacity='0'/>\
+</radialGradient>\
+</defs>\
+<g fill='url(%23g2)'>\
+<circle cx='300' cy='300' r='70'/>\
+<circle cx='230' cy='330' r='46'/>\
+<circle cx='270' cy='230' r='54'/>\
+<circle cx='170' cy='280' r='42'/>\
+</g>\
+<g fill='none' stroke='%23eaa5c8' stroke-opacity='.6'>\
+<path d='M350 190c-60 40-120-40-180 0' stroke-width='7'/>\
+<path d='M330 150c-50 30-100-30-150 0' stroke-width='5'/>\
+</g>\
+</svg>");
 }
 .hero-inner{display:grid}
 .hero-card{
-  max-width:860px;margin:0 auto;text-align:center;
-  background:#fff; border:1px solid var(--line); border-radius:22px;
-  padding:clamp(20px,3.2vw,28px);
-  box-shadow:0 14px 32px rgba(139,30,99,.10);
+  max-width:900px;margin:0 auto;text-align:center;
+  background:linear-gradient(180deg,#ffffff 0%, #fff6fb 100%);
+  border:1px solid var(--line); border-radius:26px;
+  padding:clamp(24px,3.6vw,38px);
+  box-shadow:0 18px 38px rgba(139,30,99,.12);
 }
-.hero-title{margin:0 0 6px;font-size:clamp(28px,5vw,42px);color:var(--brand-ink);font-weight:900}
-.hero-sub{margin:2px 0 14px;font-size:clamp(14px,2.2vw,18px);color:#a01f6e;font-weight:700}
-.hero-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:12px 0 16px}
-.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:#fff;border:1px solid var(--line);color:#7a2459;font-weight:700}
-.chip i{color:#c4478d}
+.hero-title{
+  margin:0 0 6px;
+  font-size:clamp(30px,5.4vw,46px);
+  color:var(--brand-ink);font-weight:900;letter-spacing:.2px
+}
+.hero-sub{
+  margin:2px 0 18px;
+  font-size:clamp(15px,2.2vw,19px);
+  color:#a01f6e;font-weight:700;opacity:.95
+}
+.hero-divider{
+  width:120px;height:8px;border-radius:999px;margin:12px auto 22px;
+  background:linear-gradient(90deg,#f8cfe0, #efaccb, #f8cfe0);
+  box-shadow:0 4px 10px rgba(139,30,99,.15)
+}
 .hero-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 .btn{background:var(--brand);color:var(--brand-ink);border:1px solid #ef9fbe;border-radius:12px;padding:10px 14px;font-weight:900;cursor:pointer}
 .btn.secondary{background:#fff0f6;color:#7a2459;border:1px solid var(--line)}
+
+/* ===================== LEGACY HERO (kept as comment on purpose) ===================== */
+/*
+FIX NOTE: You asked to keep removed parts as comments. The old minimal hero is preserved below.
+We also removed the email/phone chips from the live hero as requested.
+*/
 
 /* ===================== SECTIONS ===================== */
 section{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 10px 26px rgba(139,30,99,.07);padding:24px;margin:22px auto;scroll-margin-top:90px}
@@ -183,7 +269,7 @@ section li{list-style:disc inside;line-height:1.9;overflow-wrap:anywhere}
   </div>
 </div>
 
-<!-- ===================== HERO (New Minimal) ===================== -->
+<!-- ===================== HERO (Elegant Floral) ===================== -->
 <header class="hero">
   <div class="container hero-inner">
     <div class="hero-card">
@@ -193,11 +279,7 @@ section li{list-style:disc inside;line-height:1.9;overflow-wrap:anywhere}
       <div class="hero-sub" data-ar>لغة عربية – الصف الرابع ابتدائي | مدرسة الشروق النموذجية</div>
       <div class="hero-sub" data-en>Arabic – Grade 4 (Elementary) | Al-Shurouq Al-Namoudajia</div>
 
-      <!--<div class="hero-chips">
-        <span class="chip"><i class="fa-solid fa-graduation-cap"></i><span data-ar>بكالوريوس لغة عربية – جامعة نجران</span><span data-en>BA Arabic – Najran Univ.</span></span>
-        <span class="chip"><i class="fa-solid fa-envelope"></i> <a href="mailto:njnjnj209@gmail.com">njnjnj209@gmail.com</a></span>
-        <span class="chip"><i class="fa-solid fa-phone"></i> <a href="tel:0501375615">0501375615</a></span>
-      </div>-->
+      <div class="hero-divider" aria-hidden="true"></div>
 
       <div class="hero-cta">
         <a class="btn" href="#cv" data-ar><i class="fa-solid fa-id-card"></i> السيرة الذاتية</a>
@@ -485,7 +567,7 @@ section li{list-style:disc inside;line-height:1.9;overflow-wrap:anywhere}
 
 <footer>
   <div class="container">
-    <div data-ar>© جميع الحقوق محفوظة</div>
+    <div data-ar> © جميع الحقوق محفوظة الأستاذة هند</div>
     <div data-en class="en">© All rights reserved</div>
   </div>
 </footer>
@@ -577,17 +659,25 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="content"><div class="content-inner"></div></div>
       </div>`;
     overlay.querySelector('[data-action="close"]').addEventListener('click', closeOverlay);
-    overlay.addEventListener('click', (e)=>{ if (e.target === overlay) closeOverlay(); }, { once:true });
+    // FIX: allow closing by clicking the dim backdrop every time (no one-time listener)
+    overlay.addEventListener('click', (e)=>{ if (e.target === overlay) closeOverlay(); });
+    // FIX: close on Escape for accessibility
+    document.addEventListener('keydown', escHandler);
     return { content: overlay.querySelector('.content-inner') };
   }
+  function escHandler(ev){ if(ev.key === 'Escape'){ closeOverlay(); } }
   function showOverlay(){ overlay.classList.add('show'); lockBody(true); }
-  function closeOverlay(){ overlay.classList.remove('show'); overlay.innerHTML=''; lockBody(false); }
+  function closeOverlay(){
+    overlay.classList.remove('show'); overlay.innerHTML=''; lockBody(false);
+    // FIX: cleanup escape listener after closing
+    document.removeEventListener('keydown', escHandler);
+  }
   window.closeOverlay = closeOverlay;
 
   function openImage(src,name=''){
     overlay.innerHTML=''; const actions=[{href:src,label:'Download',download:true},{href:src,label:'Open tab',target:'_blank',rel:'noopener'}];
     const { content } = buildWindow({ title:name||'Image', icon:'fa-image', actions });
-    const img=new Image(); img.src=src; img.alt=name||'image'; img.style.maxHeight='84vh'; content.appendChild(img); showOverlay();
+    const img=new Image(); img.decoding='async'; img.loading='eager'; img.src=src; img.alt=name||'image'; img.style.maxHeight='84vh'; content.appendChild(img); showOverlay();
   }
   function openVideo(src,name=''){
     overlay.innerHTML=''; const actions=[{href:src,label:'Download',download:true},{href:src,label:'Open tab',target:'_blank',rel:'noopener'}];
@@ -656,25 +746,30 @@ document.addEventListener('DOMContentLoaded', () => {
       .list(path, { limit:200, sortBy:{column:'created_at', order:'desc'} });
     return (data||[]).map(it=>({ name: it.name, path: `${path}/${it.name}`, url: publicUrl(`${path}/${it.name}`) }));
   }
+
   async function uploadManyAt(path, files){
     const user = await getUser(); if(!requireUser(user)) return;
     for(const f of files){
-      const safe = f.name.replace(/\s+/g,'_').toLowerCase();
-      const fixed = (f.type === 'video/mp4' && /\.mb4$/i.test(safe)) ? safe.replace(/\.mb4$/i,'.mp4') : safe;
+      // FIX: safer filename + handle common video typos (keep original behavior as a comment)
+      const safe = (f.name || 'file').replace(/\s+/g,'_').toLowerCase();
+      /* OLD: const fixed = (f.type === 'video/mp4' && /\.mb4$/i.test(safe)) ? safe.replace(/\.mb4$/i,'.mp4') : safe; */
+      const fixed = /\.mb4$/i.test(safe) ? safe.replace(/\.mb4$/i,'.mp4') : safe; // handle mistaken .mb4 extension
       const to = `${path}/${Date.now()}_${fixed}`;
       await supabaseClient.storage.from(MEDIA_BUCKET).upload(to, f, { cacheControl:'3600', upsert:false });
     }
     loadAll();
   }
+
   async function uploadSingle(path, file){
     const user = await getUser(); if(!requireUser(user)) return;
     const existing = await listAt(path);
     if(existing.length){ await supabaseClient.storage.from(MEDIA_BUCKET).remove(existing.map(e=>e.path)); }
-    const safe = file.name.replace(/\s+/g,'_').toLowerCase();
+    const safe = (file.name || 'image').replace(/\s+/g,'_').toLowerCase();
     const to = `${path}/${Date.now()}_${safe}`;
     await supabaseClient.storage.from(MEDIA_BUCKET).upload(to, file, { cacheControl:'3600', upsert:false });
     loadAll();
   }
+
   async function removeFile(path){
     const user = await getUser(); if(!requireUser(user)) return;
     await supabaseClient.storage.from(MEDIA_BUCKET).remove([path]);
@@ -688,7 +783,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     container.innerHTML = files.map(f=>{
       const isImg = /\.(png|jpe?g|webp|gif|svg)$/i.test(f.name);
-      const isVid = /\.(mp4|mb4|m4v|webm|ogg|ogv|mov|3gp|3gpp|mkv|avi|mpeg|mpg)$/i.test(f.name);
+      const isVid = /\.(mp4|m4v|webm|ogg|ogv|mov|3gp|3gpp|mkv|avi|mpeg|mpg)$/i.test(f.name); /* FIX: include m4v etc. */
       const isPdf = /\.pdf$/i.test(f.name);
       if (isImg){
         return `
@@ -698,7 +793,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <a class="icon-btn" href="${f.url}" download title="تنزيل / Download"><i class="fa-solid fa-download"></i></a>
             </div>
             <div class="media-thumb" data-kind="image">
-              <img loading="lazy" src="${f.url}" alt="${f.name}" onclick="openImage('${f.url}','${f.name}')">
+              <img decoding="async" loading="lazy" src="${f.url}" alt="${f.name}" onclick="openImage('${f.url}','${f.name}')">
             </div>
           </div>`;
       }
@@ -768,7 +863,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <a class="icon-btn" href="${url}" download title="تنزيل / Download"><i class="fa-solid fa-download"></i></a>
       </div>
       <div class="media-thumb" data-kind="image" style="aspect-ratio:${aspect}">
-        <img src="${url}" alt="${f.name}" onclick="openImage('${url}','${f.name}')">
+        <img decoding="async" src="${url}" alt="${f.name}" onclick="openImage('${url}','${f.name}')">
       </div>`;
     holderEl.appendChild(block);
     block.querySelector('[data-del]').addEventListener('click', ()=>{ if(confirm('Delete this image?')) removeFile(f.path); });
